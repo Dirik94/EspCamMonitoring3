@@ -1,12 +1,15 @@
 package com.example.espcammonitoring
 
+import android.content.Intent
 import android.net.http.SslError
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.SslErrorHandler
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +28,18 @@ class MainActivity : AppCompatActivity() {
 
         // if you want to enable zoom feature
         webView.settings.setSupportZoom(true)
+
+//        val myIntent = Intent(this@MainActivity, GalleryActivity::class.java)
+
+//        this@MainActivity.startActivity(myIntent)
+
+        val button: Button = findViewById(R.id.gallery)
+        button.setOnClickListener {
+            val myIntent = Intent(this@MainActivity, GalleryActivity::class.java)
+            this@MainActivity.startActivity(myIntent)
+        }
     }
+
 
     // if you press Back button this code will work
     override fun onBackPressed() {
